@@ -1,0 +1,18 @@
+python manage.py runserver - To run app on browser
+1. python manage.py makemigrations - To prepare migration file (ADD the name of your app)
+2. python manage.py migrate - To effect changes on migration file
+python manage.py createsuperuser - Create superadmin
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Mumbi23-devke/Django.git
+git push -u origin main
+
+1.git init
+2.git config user.email "gloriawaweru5@gmail.com"
+3.git add .
+4.git commit -m "first commit"
+5. replace with yours - git remote add origin https://github.com/Mumbi23-devke/python_programming.git
+6.git push -u origin master
