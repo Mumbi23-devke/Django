@@ -15,3 +15,11 @@ def blogpage(request):
 
 def projpage(request):
     return render(request, "Project.html")
+
+
+def indexpage(request):
+    return render(request, "index.html")
+
+
+def signup(request):
+    return render(request, "Signup.html")
