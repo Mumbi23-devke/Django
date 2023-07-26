@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Student
-from .models import Teacher
+from .models import People
 
 
 def aboutpage(request):
@@ -20,7 +19,9 @@ def projpage(request):
 
 
 def indexpage(request):
-    return render(request, "index.html")
+    data = People.objects.all()
+    context = {"data": data}
+    return render(request, "index.html", context)
 
 
 def signup(request):
@@ -33,12 +34,12 @@ def home(request):
 
 def insertdata(request):
     if request.method == "POST":
-        fullname = request.POST.get('fullname')
-        email_address = request.POST.get('email_address')
+        name = request.POST.get('name')
+        email = request.POST.get('email')
         age = request.POST.get('age')
-        phone_number = request.POST.get('phone_number')
-        password = request.POST.get('password')
+        gender = request.POST.get('gender')
 
-        query = Student(fullname=fullname, email_address=email_address, age=age, phone_number=phone_number, password=password)
+        query = People.objects.create(name=name, email=email, age=age, gender=gender)
         query.save()
         return redirect("/")
+    return render(request, "index.html")

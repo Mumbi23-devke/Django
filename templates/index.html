@@ -1,165 +1,89 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-
-{% load static %}
-
-    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
-</head>
-<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emobilis</title>
+  </head>
+  <body>
 
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-
-<div class="container">
-
-    <div class="row">
-
-        <h3>REGISTRATION FORM</h3>
-        <h6>Fill out this form to register</h6>
-
-        <div class="col-sm-12">
-
-            <input type="text" placeholder="First name">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-md">
 
         </div>
+      </nav>
 
-    </div>
 
-</div>
-<br> <br>
+      <div class="container mt-5">
 
-<div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Create Data</h2>
+                <br>
 
-    <div class="row">
+                <form action="/insert" method="post">
+                    {% csrf_token %}
 
-        <div class="col-sm-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Name" name="name" required>
+                    </div>
 
-            <input type="text" placeholder=" Last name ">
+                    <div class="form-group">
+                        <input type="email" class="form-control  mt-2" placeholder="Email" name="email" required>
+                    </div>
 
+                    <div class="form-group">
+                        <input type="number" class="form-control  mt-2" placeholder="Age" name="age" required>
+
+                    </div>
+
+
+                    <div class="form-group mt-2">
+                        <select id="gender" name="gender" class="form-control" required>
+                            <option selected>select gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid gap-2">
+
+                        <button class="btn btn-success mt-2" type="submit">Insert</button>
+                    </div>
+
+
+
+                </form>
+            </div>
+
+            <table>
+
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                </tr>
+
+                {% for d in data %}
+
+                <tr>
+                    <th>{{ d.name }}</th>
+                    <th>{{ d.email }}</th>
+                    <th>{{ d.age }}</th>
+                    <th>{{ d.gender }}</th>
+                </tr>
+                {% endfor %}
+            </table>
+
+            </div>
         </div>
-
-    </div>
-
-</div>
-<br> <br>
-
-<div class="container">
-
-    <div class="row">
-
-        <div class="col-sm-12">
-
-            <input type="text" placeholder="Enter your email address">
-
-        </div>
-
-    </div>
-
-</div>
-<br> <br>
-
-<div class="container">
-
-    <div class="row">
-
-   <div class="col-sm-5">
-
-       <select class="form-select" aria-label="Default select example">
-  <option selected>Select you gender</option>
-  <option value="1">Female</option>
-  <option value="2">Male</option>
-  <option value="3">Rather not say</option>
-</select>
 
       </div>
 
-         </div>
 
-</div>
-<br> <br>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
 
-<div class="container">
-
-  <div class="row">
-
-       <div class="col-sm-12">
-
-          <input type="text" placeholder="Enter your phone number">
-
-        </div>
-
-  </div>
-
-</div>
-<br> <br>
-
-<div class="container">
-
-    <div class="row">
-
-
-    <div class="col-sm-12">
-
-        <input type="text" placeholder="Password">
-
-    </div>
-
-    </div>
-
-</div>
-<br> <br>
-
-<div class="container">
-
-    <div class="row">
-
-         <div class="col-sm-6">
-
-<button class="btn btn-outline-warning"> LOGIN </button>
-
-      </div>
-
-    </div>
-
-</div>
-
-</body>
 </html>
