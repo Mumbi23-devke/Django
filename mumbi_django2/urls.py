@@ -27,5 +27,7 @@ urlpatterns = [
     path('Blog/', views.blogpage, name='Blog'),
     path('', views.indexpage, name='index'),
     path('Signup/', views.signup, name='Signup'),
-    path('homepage/', views.home, name='homepage')
+    path('homepage/', views.home, name='homepage'),
+    path('delete/<id>', views.delete, name='delete'),
+    path('update/<id>', views.updateData, name='update')
 ]

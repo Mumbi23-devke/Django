@@ -64,6 +64,7 @@
                     <th>Email</th>
                     <th>Age</th>
                     <th>Gender</th>
+                    <th>Action</th>
                 </tr>
 
                 {% for d in data %}
@@ -73,6 +74,20 @@
                     <th>{{ d.email }}</th>
                     <th>{{ d.age }}</th>
                     <th>{{ d.gender }}</th>
+                    <th>
+
+                        <button>
+                            <a href="/delete/{{ d.id }}">Delete</a>
+
+                        </button>
+
+                        <button>
+
+                            <a href="/update/{{ d.id }}">Update</a>
+                        </button>
+                        <br>
+
+                    </th>
                 </tr>
                 {% endfor %}
             </table>
