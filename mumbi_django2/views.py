@@ -35,11 +35,14 @@ def home(request):
 def insertdata(request):
     if request.method == "POST":
         name = request.POST.get('name')
+        phone = request.POST.get('phone')
         email = request.POST.get('email')
         age = request.POST.get('age')
+        country = request.POST.get('country')
+        city = request.POST.get('city')
         gender = request.POST.get('gender')
 
-        query = People.objects.create(name=name, email=email, age=age, gender=gender)
+        query = People.objects.create(name=name, phone=phone, email=email, age=age, country=country, city=city, gender=gender)
         query.save()
         return redirect("/")
     return render(request, "index.html")
@@ -55,14 +58,20 @@ def delete(request, id):
 def updateData(request, id):
     if request.method == "POST":
         name = request.POST.get('name')
+        phone = request.POST.get('phone')
         email = request.POST.get('email')
         age = request.POST.get('age')
+        country = request.POST.get('country')
+        city = request.POST.get('city')
         gender = request.POST.get('gender')
 
         edit_data = People.objects.get(id=id)
         edit_data.name = name
+        edit_data.phone = phone
         edit_data.email = email
         edit_data.age = age
+        edit_data.country = country
+        edit_data.city = city
         edit_data.gender = gender
         edit_data.save()
 

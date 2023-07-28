@@ -3,7 +3,7 @@
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Emobilis</title>
+ <title>CRUD app</title>
  </head>
  <body>
 
@@ -29,6 +29,10 @@
  <input type="text" value="{{ dta.name }}" class="form-control" placeholder="Name" name="name" required>
  </div>
 
+     <div class="form-group">
+      <input type="number" value="{{ dta.phone }}" class="form-control" placeholder="phone" name="phone" required>
+ </div>
+
  <div class="form-group">
  <input type="email" value="{{ dta.email }}" class="form-control mt-2" placeholder="Email" name="email" required>
  </div>
@@ -36,6 +40,14 @@
  <div class="form-group">
  <input type="number" value="{{ dta.age }}" class="form-control mt-2" placeholder="Age" name="age" required>
 
+ </div>
+
+     <div class="form-group">
+ <input type="text" value="{{ dta.country}}" class="form-control" placeholder="Country" name="country" required>
+ </div>
+
+     <div class="form-group">
+ <input type="text" value="{{ dta.city }}" class="form-control" placeholder="City" name="city" required>
  </div>
 
 
@@ -61,8 +73,11 @@
  <table>
  <tr>
  <th>Name</th>
+ <th>Phone</th>
  <th>Email</th>
  <th>Age</th>
+ <th>Country</th>
+ <th>City</th>
  <th>Gender</th>
  <th>Action</th>
  </tr>
@@ -71,8 +86,11 @@
  {% for d in data %}
 <tr>
  <th>{{ d.name }}</th>
+ <th>{{ d.phone }}</th>
  <th>{{ d.email }}</th>
  <th>{{ d.age }}</th>
+ <th>{{ d.country }}</th>
+ <th>{{ d.city }}</th>
  <th>{{ d.gender }}</th>
  <th>
  <button>

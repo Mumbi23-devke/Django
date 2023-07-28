@@ -1,0 +1,6 @@
+1. Edit html and add input
+2. Edit model and add field
+3. makemigrations then migrate
+4. Go to views and add the field
+5. Go to html file and add new field to your table
+6. Add these fields to the update file
